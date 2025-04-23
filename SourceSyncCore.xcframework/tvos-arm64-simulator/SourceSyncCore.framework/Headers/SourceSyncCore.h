@@ -684,9 +684,9 @@ __attribute__((swift_name("PlatformPulsePlugin")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Activation")))
 @interface SSCActivation : SSCBase
-- (instancetype)initWithId:(SSCKotlinx_serialization_jsonJsonPrimitive * _Nullable)id externalId:(SSCLong * _Nullable)externalId name:(NSString * _Nullable)name source:(NSString * _Nullable)source uuid:(NSString * _Nullable)uuid instances:(NSArray<SSCInstance *> * _Nullable)instances data:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)data settings:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)settings template:(NSArray<SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)template_ version:(SSCInt * _Nullable)version previewImage:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)previewImage populated:(SSCBoolean * _Nullable)populated __attribute__((swift_name("init(id:externalId:name:source:uuid:instances:data:settings:template:version:previewImage:populated:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(SSCKotlinx_serialization_jsonJsonPrimitive * _Nullable)id externalId:(SSCLong * _Nullable)externalId name:(NSString * _Nullable)name source:(NSString * _Nullable)source uuid:(NSString * _Nullable)uuid instances:(NSArray<SSCInstance *> * _Nullable)instances data:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)data settings:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)settings template:(NSArray<SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)template_ version:(SSCInt * _Nullable)version previewImage:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)previewImage populated:(SSCBoolean * _Nullable)populated type:(NSString * _Nullable)type __attribute__((swift_name("init(id:externalId:name:source:uuid:instances:data:settings:template:version:previewImage:populated:type:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) SSCActivationCompanion *companion __attribute__((swift_name("companion")));
-- (SSCActivation *)doCopyId:(SSCKotlinx_serialization_jsonJsonPrimitive * _Nullable)id externalId:(SSCLong * _Nullable)externalId name:(NSString * _Nullable)name source:(NSString * _Nullable)source uuid:(NSString * _Nullable)uuid instances:(NSArray<SSCInstance *> * _Nullable)instances data:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)data settings:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)settings template:(NSArray<SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)template_ version:(SSCInt * _Nullable)version previewImage:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)previewImage populated:(SSCBoolean * _Nullable)populated __attribute__((swift_name("doCopy(id:externalId:name:source:uuid:instances:data:settings:template:version:previewImage:populated:)")));
+- (SSCActivation *)doCopyId:(SSCKotlinx_serialization_jsonJsonPrimitive * _Nullable)id externalId:(SSCLong * _Nullable)externalId name:(NSString * _Nullable)name source:(NSString * _Nullable)source uuid:(NSString * _Nullable)uuid instances:(NSArray<SSCInstance *> * _Nullable)instances data:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)data settings:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)settings template:(NSArray<SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)template_ version:(SSCInt * _Nullable)version previewImage:(NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable)previewImage populated:(SSCBoolean * _Nullable)populated type:(NSString * _Nullable)type __attribute__((swift_name("doCopy(id:externalId:name:source:uuid:instances:data:settings:template:version:previewImage:populated:type:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSString *)getDataJsonString __attribute__((swift_name("getDataJsonString()")));
 - (NSString *)getSettingsJsonString __attribute__((swift_name("getSettingsJsonString()")));
@@ -711,6 +711,7 @@ __attribute__((swift_name("Activation")))
 @property (readonly) NSDictionary<NSString *, SSCKotlinx_serialization_jsonJsonElement *> * _Nullable settings __attribute__((swift_name("settings")));
 @property (readonly) NSString * _Nullable source __attribute__((swift_name("source")));
 @property (readonly, getter=template) NSArray<SSCKotlinx_serialization_jsonJsonElement *> * _Nullable template_ __attribute__((swift_name("template_")));
+@property NSString * _Nullable type __attribute__((swift_name("type")));
 @property (readonly) NSString * _Nullable uuid __attribute__((swift_name("uuid")));
 @property (readonly) SSCInt * _Nullable version __attribute__((swift_name("version")));
 @end
@@ -3857,6 +3858,12 @@ __attribute__((swift_name("MediaUtilsKt")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PlatformApp_tvosKt")))
+@interface SSCPlatformApp_tvosKt : SSCBase
++ (SSCKtor_client_coreHttpClient *)platformHttpClientConfig:(void (^)(SSCKtor_client_coreHttpClientConfig<id> *))config __attribute__((swift_name("platformHttpClient(config:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("PlatformAppConfigKt")))
 @interface SSCPlatformAppConfigKt : SSCBase
 + (void)apiUrlsMap:(id<SSCPlatformAppConfig>)receiver block:(void (^)(SSCPlatformApiUrlsMap *))block __attribute__((swift_name("apiUrlsMap(_:block:)")));
@@ -4656,6 +4663,23 @@ __attribute__((swift_name("KermitLogger")))
 @property (readonly) NSString *tag __attribute__((swift_name("tag")));
 @end
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Ktor_client_coreHttpClientConfig")))
+@interface SSCKtor_client_coreHttpClientConfig<T> : SSCBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (SSCKtor_client_coreHttpClientConfig<T> *)clone __attribute__((swift_name("clone()")));
+- (void)engineBlock:(void (^)(T))block __attribute__((swift_name("engine(block:)")));
+- (void)installClient:(SSCKtor_client_coreHttpClient *)client __attribute__((swift_name("install(client:)")));
+- (void)installPlugin:(id<SSCKtor_client_coreHttpClientPlugin>)plugin configure:(void (^)(id))configure __attribute__((swift_name("install(plugin:configure:)")));
+- (void)installKey:(NSString *)key block:(void (^)(SSCKtor_client_coreHttpClient *))block __attribute__((swift_name("install(key:block:)")));
+- (void)plusAssignOther:(SSCKtor_client_coreHttpClientConfig<T> *)other __attribute__((swift_name("plusAssign(other:)")));
+@property BOOL developmentMode __attribute__((swift_name("developmentMode"))) __attribute__((deprecated("Development mode is no longer required. The property will be removed in the future.")));
+@property BOOL expectSuccess __attribute__((swift_name("expectSuccess")));
+@property BOOL followRedirects __attribute__((swift_name("followRedirects")));
+@property BOOL useDefaultTransformers __attribute__((swift_name("useDefaultTransformers")));
+@end
+
 __attribute__((swift_name("KotlinCoroutineContextKey")))
 @protocol SSCKotlinCoroutineContextKey
 @required
@@ -4745,23 +4769,6 @@ __attribute__((swift_name("Ktor_client_coreHttpClientEngineConfig")))
 @property BOOL pipelining __attribute__((swift_name("pipelining")));
 @property SSCKtor_client_coreProxyConfig * _Nullable proxy __attribute__((swift_name("proxy")));
 @property int32_t threadsCount __attribute__((swift_name("threadsCount"))) __attribute__((unavailable("The [threadsCount] property is deprecated. Consider setting [dispatcher] instead.")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Ktor_client_coreHttpClientConfig")))
-@interface SSCKtor_client_coreHttpClientConfig<T> : SSCBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (SSCKtor_client_coreHttpClientConfig<T> *)clone __attribute__((swift_name("clone()")));
-- (void)engineBlock:(void (^)(T))block __attribute__((swift_name("engine(block:)")));
-- (void)installClient:(SSCKtor_client_coreHttpClient *)client __attribute__((swift_name("install(client:)")));
-- (void)installPlugin:(id<SSCKtor_client_coreHttpClientPlugin>)plugin configure:(void (^)(id))configure __attribute__((swift_name("install(plugin:configure:)")));
-- (void)installKey:(NSString *)key block:(void (^)(SSCKtor_client_coreHttpClient *))block __attribute__((swift_name("install(key:block:)")));
-- (void)plusAssignOther:(SSCKtor_client_coreHttpClientConfig<T> *)other __attribute__((swift_name("plusAssign(other:)")));
-@property BOOL developmentMode __attribute__((swift_name("developmentMode"))) __attribute__((deprecated("Development mode is no longer required. The property will be removed in the future.")));
-@property BOOL expectSuccess __attribute__((swift_name("expectSuccess")));
-@property BOOL followRedirects __attribute__((swift_name("followRedirects")));
-@property BOOL useDefaultTransformers __attribute__((swift_name("useDefaultTransformers")));
 @end
 
 __attribute__((swift_name("Ktor_client_coreHttpClientEngineCapability")))
@@ -5289,6 +5296,14 @@ __attribute__((swift_name("KermitLogger.Companion")))
 @property (readonly) NSString *tag __attribute__((swift_name("tag")));
 @end
 
+__attribute__((swift_name("Ktor_client_coreHttpClientPlugin")))
+@protocol SSCKtor_client_coreHttpClientPlugin
+@required
+- (void)installPlugin:(id)plugin scope:(SSCKtor_client_coreHttpClient *)scope __attribute__((swift_name("install(plugin:scope:)")));
+- (id)prepareBlock:(void (^)(id))block __attribute__((swift_name("prepare(block:)")));
+@property (readonly) SSCKtor_utilsAttributeKey<id> *key __attribute__((swift_name("key")));
+@end
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Ktor_client_coreHttpRequestData")))
 @interface SSCKtor_client_coreHttpRequestData : SSCBase
@@ -5323,14 +5338,6 @@ __attribute__((swift_name("Ktor_client_coreProxyConfig")))
 - (instancetype)initWithUrl:(SSCKtor_httpUrl *)url __attribute__((swift_name("init(url:)"))) __attribute__((objc_designated_initializer));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) SSCKtor_httpUrl *url __attribute__((swift_name("url")));
-@end
-
-__attribute__((swift_name("Ktor_client_coreHttpClientPlugin")))
-@protocol SSCKtor_client_coreHttpClientPlugin
-@required
-- (void)installPlugin:(id)plugin scope:(SSCKtor_client_coreHttpClient *)scope __attribute__((swift_name("install(plugin:scope:)")));
-- (id)prepareBlock:(void (^)(id))block __attribute__((swift_name("prepare(block:)")));
-@property (readonly) SSCKtor_utilsAttributeKey<id> *key __attribute__((swift_name("key")));
 @end
 
 __attribute__((objc_subclassing_restricted))
